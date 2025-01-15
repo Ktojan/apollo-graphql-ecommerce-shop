@@ -5,13 +5,13 @@
     <app-filters (filtersObject)="applyFilters($event)" [categories]="categories"></app-filters>
     <div class="flex flex-column align-items-center my-1 py-3">
       <p-inputNumber class="mb-2 w-full" [(ngModel)]="rangeValues[0]" (ngModelChange)="onPriceChange($event)" mode="currency"
-        inputId="currency" currency="RSD" locale="en-US">
+        inputId="currency" currency="EUR" locale="en-US">
       </p-inputNumber>
       <p-inputNumber class="mb-2 w-full" [(ngModel)]="rangeValues[1]" (ngModelChange)="onPriceChange($event)" mode="currency"
-        inputId="currency" currency="RSD" locale="en-US">
+        inputId="currency" currency="EUR" locale="en-US">
       </p-inputNumber>
       <h5 class="font-medium mt-3 py-1 text-center">
-        Price range: {{(rangeValues[0] | number) + ' - ' + (rangeValues[1] | number)}} RSD
+        Price range: {{(rangeValues[0] | currency: 'EUR') + ' - ' + (rangeValues[1] | currency: 'EUR')}}
       </h5>
     </div>
     <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="lowestPrice" [max]="highestPrice" [animate]="true"
@@ -42,7 +42,7 @@
               [(ngModel)]="searchInput" placeholder="Search">
           </span>
           <div class="flex flex-column sm:flex-row w-full sm:w-auto">
-            <p-dropdown class="w-full sm:w-auto mb-2 sm:mb-0 sm:mr-2" [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+            <p-dropdown class="w-full sm:w-auto mb-2 sm:mb-0 sm:mr-2" [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price"
               (onChange)="onSortChange($event)" [style]="{'min-width':'15em'}"></p-dropdown>
             <p-dataViewLayoutOptions class="hidden sm:block"></p-dataViewLayoutOptions>
           </div>

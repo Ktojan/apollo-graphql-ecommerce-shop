@@ -16,7 +16,7 @@
   </span>
 
   <span class="product-price text-center mt-2">
-    {{price | number}} RSD
+    {{price | currency: 'EUR'}}
   </span>
 
   <span *ngIf="inStock > 0; else notAvailable" class="stock-status font-light text-green-400 pt-1">

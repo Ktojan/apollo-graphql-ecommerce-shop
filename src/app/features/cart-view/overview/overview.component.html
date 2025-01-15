@@ -8,7 +8,7 @@
       <div class="flex align-items-center justify-content-between m-3 p-3">
         <span class="font-medium text-2xl">{{product.name}}</span>
         <div>
-          <span class="font-light">{{product.price}} RSD</span>
+          <span class="font-light">{{product.price | currency: 'EUR'}}</span>
         </div>
       </div>
     </ng-container>

@@ -17,7 +17,7 @@
         {{ description | slice:0:50 }}{{ description.length > 50 ? '...' : '' }}
       </span>
             <span class="block text-xs sm:text-sm mb-2 text-center">{{ subcategory?.name }}</span>
-            <p class="text-base sm:text-lg font-bold mb-2 text-center">{{ price*0.01 | currency: 'EUR'}}</p>
+            <p class="text-base sm:text-lg font-bold mb-2 text-center">{{ price | currency: 'EUR'}}</p>
             <span *ngIf="inStock !== 0;else notInStock"
                   class="text-xs sm:text-sm block mb-2 text-green-500 text-center">{{ inStock }} items
         available</span>
@@ -67,8 +67,8 @@
                             item available</span>
                         <span *ngIf="inStock === 0" class="text-red-500 text-sm align-self-center md:align-self-auto">Not
               available</span>
-                        <h2 class="font-medium text-lg md:text-xl mb-1">{{ price*0.01 | currency: 'EUR'}}</h2>
-                        <span class="text-sm">or 12 x {{ getInstallmentPayAmount(price)*0.01 | currency: 'EUR'  }} per month</span>
+                        <h2 class="font-medium text-lg md:text-xl mb-1">{{ price | currency: 'EUR'}}</h2>
+                        <span class="text-sm">or 12 x {{ getInstallmentPayAmount(price) | currency: 'EUR'  }} per month</span>
                     </div>
                     <p-button (click)="product.inStock > 0 && addRemoveCartItem(product)"
                               [disabled]="product.inStock === 0"
