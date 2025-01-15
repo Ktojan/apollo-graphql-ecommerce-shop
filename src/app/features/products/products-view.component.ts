@@ -16,12 +16,12 @@ import { CartService } from 'src/app/shared/cart.service';
 })
 export class ProductsViewComponent implements OnInit, OnDestroy {
   products$!: Observable<any>
-
+  prodList: Product[] = [];
   subs = new SubscriptionContainer();
   categories!: any;
 
   // Sorting
-  sortOptions!: any[];
+  sortOptions: any = ['asc', 'desc'];
   sortKey!: string;
   sortField!: string;
   sortOrder!: number;
@@ -62,18 +62,17 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // TODO: convert to data stream -> put in constructor
     this.subs.add(this._productService.getProducts("asc", this.categoriesFilter).subscribe((products: any) => {
-      console.log(products);
-      this.products$ = of(products.data.product);
-      this.numberOfProducts = products.data.product.length;
+      this.prodList = products.data.product.map((pr: Product) => ({ ...pr, price: pr.price*0.01 }))
+      this.products$ = of(this.prodList);
+      this.numberOfProducts = this.prodList.length;
       this.isLoading = false;
 
-      const sortedPrices = [...products.data.product].sort((productA: any, productB: any) => (productA.price - productB.price))
+      const sortedPrices = [...this.prodList].sort((productA: any, productB: any) => (productA.price - productB.price))
 
       this.highestPrice = sortedPrices[0].price
-      this.lowestPrice = sortedPrices.at(-1).price;
+      this.lowestPrice = sortedPrices.at(-1)!.price || 0;
       this.rangeValues = [this.highestPrice, this.lowestPrice];
-
-      products.data.product.forEach((product: Product) => {
+      this.prodList.forEach((product: Product) => {
         if (product.price > this.highestPrice) {
           this.highestPrice = product.price;
         };
@@ -95,9 +94,7 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   onChanges(changes: any) {
     this.searchInput = changes;
     this.subs.add(this._productService.searchProducts(changes).subscribe((products: any) => {
-      console.log(products);
-
-      this.products$ = of(products.data.product);
+      this.products$ = of(this.prodList);
     }))
   }
 
@@ -115,17 +112,13 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
 
   getBySubcategory(selectedCategory: string) {
     this.subs.add(this._productService.getProductBySubcategory(selectedCategory).subscribe((products: any) => {
-      console.log(products);
-
-      this.products$ = of(products.data.product);
+      this.products$ = of(this.prodList);
     }))
   }
 
   filterSubcategories(categories: string[]) {
     this.subs.add(this._productService.getProductsFromSubcategories(categories).subscribe((products: any) => {
-      console.log(products);
-
-      this.products$ = of(products.data.product)
+      this.products$ = of(products.data.product.map((pr: Product) => ({ ...pr, price: pr.price*0.01 })));
     }))
   }
 
@@ -148,10 +141,10 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   }
 
   handlePriceFilter(event: any) {
-    this.priceFrom = event.values[0]
-    this.priceTo = event.values[1]
+    this.priceFrom = Math.round(event.values[0]*100);
+    this.priceTo = Math.round(event.values[1]*100);
     this.subs.add(this._productService.getProductsByPrice(this.priceFrom, this.priceTo).subscribe((products: any) => {
-      this.products$ = of(products.data.product);
+      this.products$ = of(products.data.product.map((pr: Product) => ({ ...pr, price: pr.price*0.01 })));
     }))
   }
 
@@ -170,21 +163,10 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   }
 
   onSortChange(event: any) {
-    this.subs.add(this._productService.getProducts(event.value).subscribe((product: any) => {
-      this.products$ = of(product.data.product);
+    this.subs.add(this._productService.getProducts(event.value).subscribe((products: any) => {
+      this.products$ = of(products.data.product.map((pr: Product) => ({ ...pr, price: pr.price*0.01 })));
     }))
 
-    // For pagination
-    // let value = event.value;
-
-    // if (value.indexOf('!') === 0) {
-    //   this.sortOrder = -1;
-    //   this.sortField = value.substring(1, value.length);
-    // }
-    // else {
-    //   this.sortOrder = 1;
-    //   this.sortField = value;
-    // }
   }
 
   ngOnDestroy() {
