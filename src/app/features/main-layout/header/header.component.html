@@ -1,5 +1,5 @@
-<div class="header mb-3 flex align-items-center justify-content-between">
-  <button #btn class="p-link lg:hidden" (click)="menu.toggle($event)">
+<div class="header mb-3 py-1 px-9 flex align-items-center justify-content-between">
+  <button #btn class="p-link lg:hidden mr-6" (click)="menu.toggle($event)">
     <i class="pi pi-bars text-2xl text-white"></i>
   </button>
 
@@ -8,27 +8,30 @@
   <span [routerLink]="['/home']" class="font-bold text-xl cursor-pointer text-white pr-0 flex-grow-1 text-start">
     <img id="logo" src="../../../../assets/carp_01.jpeg" alt="logo">
   </span>
+  <span class="flex lg:inline mx-3 text-3xl text-white">E-commerce demo: Apollo + Angular</span>
 
   <a [routerLink]="['/cart']" class="p-link lg:hidden">
     <i class="pi pi-shopping-cart text-2xl text-white" *ngIf="cartItems !== '0'" pBadge [value]="cartItems"></i>
     <i class="pi pi-shopping-cart text-2xl text-white" *ngIf="cartItems === '0'"></i>
   </a>
 
-  <ul class="hidden lg:flex align-items-center list-none p-0 m-0 flex-grow-1">
-    <li><a [routerLink]="['/home']" routerLinkActive="text-primary" class="p-2 no-underline text-white">Home</a></li>
+  <ul class="hidden lg:flex align-items-center list-none p-0 m-0 flex-grow-1 text-xl justify-content-end">
+    <li><a [routerLink]="['/home']" routerLinkActive="text-primary" class="p-2 no-underline text-white">Homepage</a></li>
     <li><a [routerLink]="['/products/search']" routerLinkActive="text-primary"
         class="p-2 no-underline text-white">Products</a></li>
     <li><a [routerLink]="['/categories']" routerLinkActive="text-primary"
         class="p-2 no-underline text-white">Categories</a></li>
-    <li><a [routerLink]="['/wishlist']" routerLinkActive="text-primary" class="p-2 no-underline text-white">
-        <i class="pi pi-heart mr-2" *ngIf="wishListItems !== '0'" pBadge [value]="wishListItems"></i>
-        <i class="pi pi-heart mr-2" *ngIf="wishListItems === '0'"></i>
-        Wishlist
-      </a></li>
+  </ul>
+  <ul class="hidden lg:flex align-items-center list-none p-0 m-0 flex-grow-1 text-xl justify-content-end">
     <li><a [routerLink]="['/cart']" routerLinkActive="text-primary" class="p-2 no-underline text-white">
         <i class="pi pi-shopping-cart mr-2" *ngIf="cartItems !== '0'" pBadge [value]="cartItems"></i>
         <i class="pi pi-shopping-cart mr-2" *ngIf="cartItems === '0'"></i>
         Cart
+      </a></li>
+    <li><a [routerLink]="['/wishlist']" routerLinkActive="text-primary" class="p-2 no-underline text-white">
+        <i class="pi pi-heart mr-2" *ngIf="wishListItems !== '0'" pBadge [value]="wishListItems"></i>
+        <i class="pi pi-heart mr-2" *ngIf="wishListItems === '0'"></i>
+        Wishlist
       </a></li>
   </ul>
 </div>
