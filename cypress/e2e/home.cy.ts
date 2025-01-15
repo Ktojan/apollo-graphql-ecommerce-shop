@@ -44,9 +44,9 @@ describe('Footer menu tests', () => {
         cy.visit('http://localhost:4200/home')
     })
 
-    it('should display the Shoply logo', () => {
+    it('should display the Flying Carp logo', () => {
         cy.get('body > app-root > app-footer > div > div:nth-child(1) > span')
-            .should('have.text', 'Shoply')
+            .should('have.text', 'Flying Carp')
     })
 
     it('should navigate to Home page', () => {
