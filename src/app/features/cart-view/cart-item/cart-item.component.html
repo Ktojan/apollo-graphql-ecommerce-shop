@@ -7,7 +7,7 @@
          width="120px" [alt]="product.name">
     <div class="flex flex-column">
       <h2 class="p-0 m-0 max-w-18rem">{{ product.name }}</h2>
-      <span>{{ product.price | number }} RSD</span>
+      <span>{{ product.price | currency: 'EUR' }}</span>
       <span *ngIf="product.inStock > 1" class="mt-1 text-green-400">{{product.inStock}} items available</span>
       <span *ngIf="product.inStock === 1" class="mt-1 text-green-400">
               <i class="pi pi-info-circle" style="color: #3A82F6"></i>
