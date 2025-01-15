@@ -1,8 +1,6 @@
-## [Demo](https://ecommerce-app-angular.netlify.app/)
+# ApolloGraphAngularEShop
 
-# Shoply
-
-Welcome to **Shoply**, an advanced Angular-based ecommerce application designed to provide a seamless shopping experience. This platform enables users to explore a wide range of products with powerful filtering, sorting, and viewing options. Whether you're searching for specific items or browsing through categories, Shoply ensures a user-friendly and efficient shopping journey.
+Welcome to advanced Angular-based ecommerce application designed to provide a seamless shopping experience. This platform enables users to explore a set of products with powerful filtering, sorting, and viewing options. Whether you're searching for specific items or browsing through categories, our app ensures a user-friendly and efficient shopping journey.
 
 ## Key Features
 
@@ -37,29 +35,23 @@ npx cypress open
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/golubovicluka/ecommerce.git
+   git clone
    ```
 
-2. **Navigate to the Project Directory**
-
-   ```bash
-   cd ecommerce
-   ```
-
-3. **Install Dependencies**
+2. **Install Dependencies**
 
    ```bash
    npm install
    ```
 
-4. **Start the Angular Development Server**
+3. **Start the Angular Development Server**
 
    ```bash
-   ng serve
+   npm start
    ```
 
    The application will be available at `http://localhost:4200`.
 
 ## Author
 
-- [@golubovicluka](https://github.com/golubovicluka)
+- [@Ktojan](https://github.com/Ktojan)

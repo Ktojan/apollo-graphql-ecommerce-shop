@@ -29,7 +29,6 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/cypress
 /.angular/cache
 .sass-cache/
 /connect.lock

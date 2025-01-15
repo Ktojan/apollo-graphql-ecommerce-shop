@@ -1,10 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 import { ProductsService } from './features/products/products.service';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -64,7 +63,6 @@ import { SlideMenuModule } from 'primeng/slidemenu';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -109,7 +107,7 @@ import { SlideMenuModule } from 'primeng/slidemenu';
     },
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class AppModule {
 }
