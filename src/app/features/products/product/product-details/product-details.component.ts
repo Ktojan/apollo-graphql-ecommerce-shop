@@ -88,8 +88,7 @@ export class ProductDetailsComponent implements OnInit {
       // Suggested products
       const productCategory = state?.product.category?.name;
       this._productService.getProductsByCategory(productCategory).subscribe((suggestedProducts: any) => {
-        // TODO: filter out the currently selected item and remove it from suggestions list
-        this.suggestedProducts = suggestedProducts.data.product;
+        this.suggestedProducts = suggestedProducts.data.product.map((pr: Product) => ({ ...pr, price: pr.price*0.01 }));
         // Undefined when user reload the page or goes directly to this route
       })
     }
@@ -101,7 +100,7 @@ export class ProductDetailsComponent implements OnInit {
     // If user navigated manually to the route
     if (!this.product) {
       this._productService.getProductById(this.id).subscribe((product: any) => {
-        this.product = product.data.product[0];
+        this.product = { ...product.data.product[0], price: product.data.product[0].price*0.01 };
         this.images = product.data.product[0].images;
         this.inWishlist = this.checkInWishlist(this.id);
 

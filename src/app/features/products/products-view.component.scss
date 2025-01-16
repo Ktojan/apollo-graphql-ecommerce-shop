@@ -55,6 +55,14 @@
   }
 }
 
+.list-tile {
+  position: relative;
+  width: 48%;
+  height: 270px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+
 .p-dropdown {
   width: 14rem;
   font-weight: normal;
@@ -94,4 +102,8 @@
   > div
   > span.p-slider-range.ng-star-inserted {
   width: 250px;
+}
+
+::ng-deep.p-toast {
+  width: fit-content !important;
 }

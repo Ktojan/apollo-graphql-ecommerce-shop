@@ -32,7 +32,7 @@
 
   <!-- Products section -->
   <div class="w-full md:w-9 lg:w-10 mt-3 md:mt-0 md:ml-3">
-    <p-dataView [value]="products$ | async" [paginator]="true" [rows]="10" (onLazyLoad)="loadData($event)"
+    <p-dataView [value]="products$ | async" [paginator]="true" [rows]="20" (onLazyLoad)="loadData($event)"
       [loading]="isLoading" [rowsPerPageOptions]="[10,20,30]" paginatorPosition="bottom">
       <ng-template pTemplate="header">
         <div class="flex flex-column sm:flex-row align-items-center justify-content-between">
@@ -44,14 +44,14 @@
           <div class="flex flex-column sm:flex-row w-full sm:w-auto">
             <p-dropdown class="w-full sm:w-auto mb-2 sm:mb-0 sm:mr-2" [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price"
               (onChange)="onSortChange($event)" [style]="{'min-width':'15em'}"></p-dropdown>
-            <p-dataViewLayoutOptions class="hidden sm:block"></p-dataViewLayoutOptions>
+            <p-dataViewLayoutOptions  class="hidden sm:block"></p-dataViewLayoutOptions>
           </div>
         </div>
       </ng-template>
 
       <!-- List view -->
       <ng-template let-product pTemplate="listItem">
-        <div class="w-full" style="position: relative;">
+        <div class="list-tile">
           <app-product (addedToCart)="addToCart($event)" (removedFromCart)="removeFromCart($event)"
             (addedToWishList)="addToWishList($event)" [isListView]="true" [categoryId]="product.categoryId"
             [subcategoryId]="product.subcategoryId" (removedFromWishList)="removedFromWishList($event)"

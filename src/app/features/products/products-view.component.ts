@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, filter } from 'rxjs';
 import { Product } from './Product';
-import { ProductsService } from './products.service';
+import { initialProds, ProductsService } from './products.service';
 import { SubscriptionContainer } from './SubscriptionContainer';
 import { MessageService } from 'primeng/api';
 import { WishlistService } from '../../shared/wishlist.service';
@@ -43,6 +43,15 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   public items!: MenuItem[];
   home!: MenuItem;
 
+  codeSample = `
+  onChanges(changes: any) {
+    this.searchInput = changes;
+    this.subs.add(this._productService.searchProducts(changes).subscribe((products: any) => {
+      this.products$ = of(this.prodList);
+    }))
+  }
+  `
+
   constructor(
     private _productService: ProductsService,
     private _messageService: MessageService,
@@ -60,9 +69,12 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // TODO: convert to data stream -> put in constructor
     this.subs.add(this._productService.getProducts("asc", this.categoriesFilter).subscribe((products: any) => {
-      this.prodList = products.data.product.map((pr: Product) => ({ ...pr, price: pr.price*0.01 }))
+      const productsExtended = products.data.product.concat(initialProds.filter(
+        pr => this.categoriesFilter? pr.category.name == this.categoriesFilter : true)
+      );
+      this.prodList = productsExtended.map((pr: Product) => ({ ...pr, price: pr.price*0.01 }));
+      console.log('Fetched products: ', this.prodList);
       this.products$ = of(this.prodList);
       this.numberOfProducts = this.prodList.length;
       this.isLoading = false;
@@ -168,6 +180,12 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
     }))
 
   }
+
+  showCodeSample() {
+    this._messageService.add({ severity: 'info', summary: 'Key code sample', key: 'code', life: 30000,
+      detail: this.codeSample
+     });
+}
 
   ngOnDestroy() {
     this.subs?.dispose()
