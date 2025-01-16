@@ -43,15 +43,6 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   public items!: MenuItem[];
   home!: MenuItem;
 
-  codeSample = `
-  onChanges(changes: any) {
-    this.searchInput = changes;
-    this.subs.add(this._productService.searchProducts(changes).subscribe((products: any) => {
-      this.products$ = of(this.prodList);
-    }))
-  }
-  `
-
   constructor(
     private _productService: ProductsService,
     private _messageService: MessageService,
@@ -180,12 +171,6 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
     }))
 
   }
-
-  showCodeSample() {
-    this._messageService.add({ severity: 'info', summary: 'Key code sample', key: 'code', life: 30000,
-      detail: this.codeSample
-     });
-}
 
   ngOnDestroy() {
     this.subs?.dispose()

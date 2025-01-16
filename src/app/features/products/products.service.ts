@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, map, tap } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 
 @Injectable({
