@@ -35,7 +35,7 @@
 <!-- List view -->
 <ng-template #listView>
     <!-- Container -->
-    <div
+    <div style="height: 100%"
             class="flex flex-column transition-duration-500 hover:shadow-4 w-full border-1 border-primary wishlist-container border-round-md my-3 p-3 md:p-5 relative">
         <i *ngIf="!wishlistView" (click)="addRemoveItemWishlist(product)"
            class="favorite absolute top-2 right-2 z-10 text-xl cursor-pointer"

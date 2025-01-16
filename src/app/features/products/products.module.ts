@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ProductsViewComponent } from './products-view.component';
 import { ProductComponent } from './product/product.component';
 import { FiltersComponent } from './filters/filters.component';
@@ -70,6 +70,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     ProductsViewComponent,
     ProductComponent
   ],
-  providers: [MessageService]
+  providers: [MessageService],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class ProductsModule { }
