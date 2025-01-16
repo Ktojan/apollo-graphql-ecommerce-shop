@@ -32,6 +32,6 @@ export class CategoryComponent implements OnInit {
     if (name === 'Kitchen') {
       return "https://storables.com/wp-content/uploads/2019/11/kitchen-with-modern-grey-wallpaper-1024x683.jpeg";
     }
-    return
+    return ''
   }
 }
