@@ -97,7 +97,7 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
   onChanges(changes: any) {
     this.searchInput = changes;
     this.subs.add(this._productService.searchProducts(changes).subscribe((products: any) => {
-      this.products$ = of(this.prodList);
+      this.products$ = of(products.data.product.map((pr: Product) => ({ ...pr, price: pr.price*0.01 })));
     }))
   }
 
