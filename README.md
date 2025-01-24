@@ -1,6 +1,9 @@
 
 ![ecom-1](https://github.com/user-attachments/assets/0ca6bdc5-efd1-4bcd-9f05-ee9fdb44345b)
 
+![network_ecomm](https://github.com/user-attachments/assets/bd289a24-82ad-4b0c-8f36-1b504a882b3f)
+
+
 # ApolloGraphAngularEShop
 
 Welcome to an advanced Angular-based ecommerce application designed to provide a seamless shopping experience. This platform enables users to explore a set of products with filtering, sorting, viewing options, wishlist and saving data across browser sessions (in localstorage). First published in Jan 2025.
