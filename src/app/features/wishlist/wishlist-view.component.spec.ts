@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WishlistViewComponent } from './wishlist-view.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 describe('WishlistViewComponent', () => {
   let component: WishlistViewComponent;
@@ -8,7 +10,9 @@ describe('WishlistViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WishlistViewComponent]
+      declarations: [WishlistViewComponent],
+      providers: [ MessageService],
+      schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
 

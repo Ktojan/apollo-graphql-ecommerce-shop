@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FiltersComponent } from './filters.component';
+import { Apollo } from 'apollo-angular';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('FiltersComponent', () => {
   let component: FiltersComponent;
@@ -8,7 +10,9 @@ describe('FiltersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FiltersComponent ]
+      declarations: [ FiltersComponent ],
+      providers: [Apollo],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 

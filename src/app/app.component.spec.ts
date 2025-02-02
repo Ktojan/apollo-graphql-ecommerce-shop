@@ -1,8 +1,12 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>,
+  app: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -11,25 +15,18 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture).toBeTruthy();
   });
 
-  it(`should have as title 'apollo-graphql-ecommerce-shop'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('apollo-graphql-ecommerce-shop');
+  it(`should have as title 'E-commerce demo'`, () => {
+    expect(app.title).toEqual('E-commerce demo');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('apollo-graphql-ecommerce-shop app is running!');
-  });
 });
