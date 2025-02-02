@@ -6,7 +6,7 @@
 
 # ApolloGraphAngularEShop
 
-Welcome to an advanced Angular-based ecommerce application designed to provide a seamless shopping experience. This platform enables users to explore a set of products with filtering, sorting, viewing options, wishlist and saving data across browser sessions (in localstorage). First published in Jan 2025.
+Welcome to an advanced Angular-based e-commerce application, designed to provide a seamless shopping experience. This platform enables users to explore a set of products with filtering, sorting, categories, wishlist, cart and saving data across browser sessions (in localstorage). First published in Jan 2025.
 
 ## Key Features
 
@@ -29,7 +29,7 @@ Welcome to an advanced Angular-based ecommerce application designed to provide a
 To execute the end-to-end tests, navigate to the project root directory and run:
 
 ```bash
-npx cypress open
+npx cypress open    or    npx cypress run
 ```
 
 ## Running the Application Locally
@@ -37,7 +37,7 @@ npx cypress open
 1. **Clone the Repository**
 
    ```bash
-   git clone
+   git clone <link>.git
    ```
 
 2. **Install Dependencies**
@@ -58,6 +58,12 @@ npx cypress open
 ![ecom-3](https://github.com/user-attachments/assets/65405080-b4ce-40a7-931c-bcfa50ada577)
 
 ![ecom-4](https://github.com/user-attachments/assets/03371651-ca87-4e93-b8c7-3219484fc277)
+
+## TESTS
+
+![apollo-shop-e2e-tests](https://github.com/user-attachments/assets/b23d4ffa-121a-4c51-87d4-6d839ad1b35a)
+
+![apollo-shop-unit](https://github.com/user-attachments/assets/347b530e-d660-4c13-88e3-3e9a154db751)
 
 
 
