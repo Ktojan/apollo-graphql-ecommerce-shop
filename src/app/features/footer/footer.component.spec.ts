@@ -3,7 +3,7 @@ import { FooterComponent } from './footer.component';
 import { Router } from '@angular/router';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-fdescribe('FooterComponent', () => {
+describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
   let routerSpy: jasmine.SpyObj<Router>;

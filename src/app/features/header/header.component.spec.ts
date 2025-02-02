@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { initialProds } from '../products/products.service';
 
-fdescribe('HeaderComponent', () => {
+describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let wishlistServiceSpy: jasmine.SpyObj<WishlistService>;
