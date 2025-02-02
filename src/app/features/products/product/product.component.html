@@ -36,15 +36,15 @@
 <ng-template #listView>
     <!-- Container -->
     <div style="height: 100%"
-            class="flex flex-column transition-duration-500 hover:shadow-4 w-full border-1 border-primary wishlist-container border-round-md my-3 p-3 md:p-5 relative">
+            class="flex flex-column transition-duration-500 hover:shadow-4 w-full border-1 border-primary wishlist-container border-round-md my-3 p-3 relative">
         <i *ngIf="!wishlistView" (click)="addRemoveItemWishlist(product)"
            class="favorite absolute top-2 right-2 z-10 text-xl cursor-pointer"
            [class]="inWishlist ? 'pi pi-heart-fill wishlist' : 'pi pi-heart'"></i>
         <!-- Left side -->
         <div class="flex flex-column items-center md:items-start md:flex-row">
             <img (click)="openProductDetails(id)" [src]="images[0]" [alt]="name"
-                 class="w-48 h-48 object-contain cursor-pointer md:mb-0 md:mr-5 align-self-center md:align-self-auto"
-                 style="max-width: 200px; max-height: 200px;">
+                 class="w-30 h-48 object-contain cursor-pointer md:mb-0 md:mr-5 align-self-center md:align-self-auto"
+                 style="max-width: 150px; max-height: 150px;">
             <div style="max-width: 600px;"
                  class="flex flex-column justify-center items-center md:items-start text-center md:text-left">
                 <h2 (click)="openProductDetails(id)"
@@ -52,8 +52,8 @@
                     {{ name }}
                 </h2>
                 <span class="font-light text-sm mb-1">EAN: {{ EAN }}</span>
-                <span class="text-sm mb-1">{{ description }}</span>
-                <span class="text-sm">{{ category?.name }} > {{ subcategory?.name }}</span>
+                <span class="text-sm mb-1" [pTooltip]="description.length > 70 ? description : ''" tooltipPosition="top">
+                  {{ description | slice:0:70 }}{{ description.length > 70 ? '...' : '' }}</span>
             </div>
             <div class="flex flex-column items-center md:items-end justify-between md:mt-0 md:ml-auto">
 
