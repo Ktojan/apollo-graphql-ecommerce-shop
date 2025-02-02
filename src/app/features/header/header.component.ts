@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WishlistService } from '../../../shared/wishlist.service';
-import { Product } from '../../products/Product';
+import { WishlistService } from '../../shared/wishlist.service';
+import { Product } from '../products/Product';
 import { CartService } from 'src/app/shared/cart.service';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
