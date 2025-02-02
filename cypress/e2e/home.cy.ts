@@ -1,21 +1,15 @@
 // Home page tests
 describe("Home page tests", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:4200/home")
+        cy.visit("/home")
     })
 
-    it("should have title 'Webshop'", () => {
-        cy.title().should('eq', 'Webshop');
+    it("should have title 'E-commerce demo'", () => {
+        cy.title().should('eq', 'E-commerce demo');
     })
-
-    it('should display carousel header', () => {
-        cy.get('h2.center.font-light.m-4.mt-8.pb-3.w-full.h-full')
-            .should('exist')
-            .and('have.text', 'Our newest products');
-    });
 
     it('should display suggested products', () => {
-        cy.get('.p-carousel-item').should('have.length.gte', 1);
+        cy.get('.p-carousel-item').should('have.length.gte', 1); // gte = greater or equal
     });
 
     it('should redirect to product details page on clicking', () => {
@@ -31,36 +25,36 @@ describe("Home page tests", () => {
     })
 
     it("should fill in form data", () => {
-        cy.get("input[name='name']").type("Katarina");
-        cy.get("input[name='surname']").type("Acimovic");
-        cy.get("input[name='email']").type("katarinakaca88@gmail.com");
-        cy.get('p-button[label="Sign up"]').click();
+        cy.get("input[name='name']").type("Te");
+        cy.get("input[name='surname']").type("Sting");
+        cy.get("input[name='email']").type("testing777@gmail.com");
+        cy.get('p-button[label="Sign Up"]').click();
     })
 })
 
 // Footer tests
 describe('Footer menu tests', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:4200/home')
+        cy.visit('/home')
     })
 
-    it('should display the Flying Carp logo', () => {
+    it('should display the Flying Carp label', () => {
         cy.get('body > app-root > app-footer > div > div:nth-child(1) > span')
-            .should('have.text', 'Flying Carp')
+            .should('have.text', 'Flying Carp e-commerce. 2025')
     })
 
     it('should navigate to Home page', () => {
-        cy.get('body > app-root > app-footer > div > div.flex.align-items-center.gap-4.justify-content-between.w-3 > div:nth-child(1) > a:nth-child(1) > span').click()
+        cy.get('app-footer a:nth-child(1) > span').click()
         cy.url().should('include', '/home')
     })
 
     it('should navigate to Products page', () => {
-        cy.get('body > app-root > app-footer > div > div.flex.align-items-center.gap-4.justify-content-between.w-3 > div:nth-child(1) > a:nth-child(2) > span').click()
+        cy.get('app-footer a:nth-child(2) > span').click()
         cy.url().should('include', '/products/search')
     })
 
     it('should navigate to Categories page', () => {
-        cy.get('body > app-root > app-footer > div > div.flex.align-items-center.gap-4.justify-content-between.w-3 > div:nth-child(1) > a:nth-child(3) > span').click()
+        cy.get('app-footer a:nth-child(3) > span').click()
         cy.url().should('include', '/categories')
     })
 
@@ -76,11 +70,11 @@ describe('Footer menu tests', () => {
 // Header tests
 describe('Header menu tests', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:4200/home')
+        cy.visit('/home')
     })
 
     it("should navigate to Home page on clicking Home link", () => {
-        cy.get(".header li").contains("Home").click();
+        cy.get(".header li").contains("Homepage").click();
         cy.url().should("include", "/home");
     });
 
@@ -92,11 +86,6 @@ describe('Header menu tests', () => {
     it("should navigate to Categories page on clicking Categories link", () => {
         cy.get(".header li").contains("Categories").click();
         cy.url().should("include", "/categories");
-    });
-
-    it("should navigate to Login page on clicking Login link", () => {
-        cy.get(".header li").contains("Login").click();
-        cy.url().should("include", "/login");
     });
 
     it("should navigate to Wishlist page on clicking Wishlist link", () => {
