@@ -7,11 +7,9 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Webshop';
+  title = 'E-commerce demo';
 
   constructor(private primengConfig: PrimeNGConfig) { }
-
-
 
   ngOnInit() {
     this.primengConfig.ripple = true;

@@ -17,7 +17,7 @@ import { InMemoryCache } from '@apollo/client/core';
 
 // Feature modules
 import { ProductsModule } from './features/products/products.module';
-import { HeaderComponent } from './features/main-layout/header/header.component';
+import { HeaderComponent } from './features/header/header.component';
 
 // PrimeNG modules
 import { BadgeModule } from 'primeng/badge';
@@ -41,7 +41,7 @@ import { StepsModule } from 'primeng/steps';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ShippingComponent } from './features/cart-view/shipping/shipping.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
-import { FooterComponent } from './features/main-layout/footer/footer.component';
+import { FooterComponent } from './features/footer/footer.component';
 import { OverviewComponent } from './features/cart-view/overview/overview.component';
 import { PaymentComponent } from './features/cart-view/payment/payment.component';
 import { CartItemComponent } from './features/cart-view/cart-item/cart-item.component';
