@@ -1,8 +1,9 @@
 
 ![ecom-1](https://github.com/user-attachments/assets/0ca6bdc5-efd1-4bcd-9f05-ee9fdb44345b)
 
-![network_ecomm](https://github.com/user-attachments/assets/bd289a24-82ad-4b0c-8f36-1b504a882b3f)
 
+
+![media_icon](https://github.com/user-attachments/assets/557fe6b2-37b7-4112-be8a-6eb9d96a7697) ![gifdemo_icon](https://github.com/user-attachments/assets/a0395b5f-cf3b-4b50-ad7b-24ae14beb649) [ALL THE MEDIA EXPLORE HERE](https://github.com/Ktojan/apollo-graphql-ecommerce-shop/blob/master/READ%20MEdia.md)
 
 # ApolloGraphAngularEShop
 
@@ -53,17 +54,6 @@ npx cypress open    or    npx cypress run
    ```
    The application will be available at `http://localhost:4200`.
 
-![ecom-2](https://github.com/user-attachments/assets/0ad835ed-40ec-4c91-9a8d-a5b333969828)
-
-![ecom-3](https://github.com/user-attachments/assets/65405080-b4ce-40a7-931c-bcfa50ada577)
-
-![ecom-4](https://github.com/user-attachments/assets/03371651-ca87-4e93-b8c7-3219484fc277)
-
-## TESTS
-
-![apollo-shop-e2e-tests](https://github.com/user-attachments/assets/b23d4ffa-121a-4c51-87d4-6d839ad1b35a)
-
-![apollo-shop-unit](https://github.com/user-attachments/assets/347b530e-d660-4c13-88e3-3e9a154db751)
-
+![media_icon](https://github.com/user-attachments/assets/557fe6b2-37b7-4112-be8a-6eb9d96a7697) ![gifdemo_icon](https://github.com/user-attachments/assets/a0395b5f-cf3b-4b50-ad7b-24ae14beb649) [ALL THE MEDIA EXPLORE HERE](https://github.com/Ktojan/apollo-graphql-ecommerce-shop/blob/master/READ%20MEdia.md)
 
 
